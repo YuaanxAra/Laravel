@@ -6,6 +6,7 @@ use App\Http\Controllers\SchoolClassController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\GradeController;
+use App\Http\Controllers\BookController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -15,6 +16,8 @@ use App\Http\Controllers\GradeController;
 Route::get('/', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/books', [BookController::class, 'index'])->name('books.index');
 
 // Aktifkan profile routes
 Route::middleware('auth')->group(function () {
@@ -31,4 +34,4 @@ Route::middleware('auth')->group(function () {
     ]);
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
