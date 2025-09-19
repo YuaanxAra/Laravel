@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Models;
 
 
@@ -8,15 +9,17 @@ use App\Models\Grade;
 
 class Student extends Model
 {
-protected $fillable = ['nis','name','school_class_id','email'];
+    protected $fillable = ['nis', 'name', 'school_class_id', 'email'];
 
 
-public function schoolClass() {
-return $this->belongsTo(SchoolClass::class);
-}
+    public function schoolClass()
+    {
+        return $this->belongsTo(SchoolClass::class);
+    }
 
 
-public function grades() {
-return $this->hasMany(Grade::class);
-}
+    public function grades()
+    {
+        return $this->hasMany(Grade::class);
+    }
 }
